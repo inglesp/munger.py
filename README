@@ -1,0 +1,21 @@
+###
+# munger.py - version 0.0.1
+##
+
+# a dead simple library for munging text streams; a pythonic answer to grep, sed
+# and friends.
+#
+# convert a file's line endings:
+# >>> Munger.open('/path/to/file').substitute(r"\r$", "").write()
+#
+# watch access logs for 404s:
+# >>> m = munger.Munger.tail('access_log')
+# >>> m.split().keep_if_field_matches(8, '404').field(6).display()
+#
+# find number of words containing "abc":
+# >>> Munger.open('/usr/share/dict/words').keep_if_contains('abc').count()
+#
+# see modest test suite in munger_test.py for more basic examples of use.
+#
+# heavily inspired by Generator Tricks for Systems Programmers -- see
+# http://dabeaz.com/generators.
